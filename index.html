@@ -595,5 +595,22 @@
 </footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<script>
+// Analytics beacon → n8n webhook (fires once per page load, silent fail)
+(function(){
+  try {
+    var p = new URLSearchParams(window.location.search);
+    var url = 'https://n8n.bkw.group/webhook/247e1966-fdc2-46b0-929e-f081ac402c36'
+      + '?utm_source='   + encodeURIComponent(p.get('utm_source')   || 'direct')
+      + '&utm_campaign=' + encodeURIComponent(p.get('utm_campaign') || 'none')
+      + '&utm_medium='   + encodeURIComponent(p.get('utm_medium')   || 'none')
+      + '&referrer='     + encodeURIComponent(document.referrer     || 'direct')
+      + '&screen='       + encodeURIComponent(window.innerWidth + 'x' + window.innerHeight)
+      + '&ts='           + Date.now();
+    fetch(url, { mode: 'no-cors', keepalive: true }).catch(function(){});
+  } catch(e){}
+})();
+</script>
 </body>
 </html>
