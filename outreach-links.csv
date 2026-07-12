@@ -1,18 +1,21 @@
-Tier,Company,UTM Source,Outreach Link,Contact Target,Status,Sent Date,Notes
-1,SG TAS,tas,https://vitaliy-bli.github.io/botkordon/?utm_source=tas&utm_medium=email&utm_campaign=jul2026,Head of Digital / Head of Product,,,#1 UA non-life insurer
-1,ARX,arx,https://vitaliy-bli.github.io/botkordon/?utm_source=arx&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,ex-AXA international backing
-1,UNIKA,unika,https://vitaliy-bli.github.io/botkordon/?utm_source=unika&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Green Card + travel medical
-1,VUSO,vuso,https://vitaliy-bli.github.io/botkordon/?utm_source=vuso&utm_medium=email&utm_campaign=jul2026,Head of Marketing,,,Retail insurance
-1,INGO Ukraine,ingo,https://vitaliy-bli.github.io/botkordon/?utm_source=ingo&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Big brand auto insurance
-1,Universalna,universalna,https://vitaliy-bli.github.io/botkordon/?utm_source=universalna&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Digital-forward
-1,Arsenal Insurance,arsenal,https://vitaliy-bli.github.io/botkordon/?utm_source=arsenal&utm_medium=email&utm_campaign=jul2026,CDO / Head of Innovation,,,Fintech partnerships
-1,PZU Ukraine,pzu,https://vitaliy-bli.github.io/botkordon/?utm_source=pzu&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Polish parent PL fit
-2,Visit Ukraine,visitukraine,https://vitaliy-bli.github.io/botkordon/?utm_source=visitukraine&utm_medium=email&utm_campaign=jul2026,Founder / CPO,,,Already sells travel medical online
-2,Kyivstar,kyivstar,https://vitaliy-bli.github.io/botkordon/?utm_source=kyivstar&utm_medium=email&utm_campaign=jul2026,VAS / B2C Product Head,,,5G roaming bundles
-2,Vodafone UA,vodafone,https://vitaliy-bli.github.io/botkordon/?utm_source=vodafone&utm_medium=email&utm_campaign=jul2026,Head of Digital Services,,,EU roaming Jan 2026
-2,lifecell,lifecell,https://vitaliy-bli.github.io/botkordon/?utm_source=lifecell&utm_medium=email&utm_campaign=jul2026,Marketing / Partnerships,,,Smaller, marketing-hungry
-2,monobank,monobank,https://vitaliy-bli.github.io/botkordon/?utm_source=monobank&utm_medium=email&utm_campaign=jul2026,Product Manager,,,Retention play for card holders
-2,PUMB,pumb,https://vitaliy-bli.github.io/botkordon/?utm_source=pumb&utm_medium=email&utm_campaign=jul2026,Head of Retail Digital,,,Active in retail digital
-2,Sense Bank,sense,https://vitaliy-bli.github.io/botkordon/?utm_source=sense&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Post-rebrand digital push
-2,Nova Poshta International,novaposhta,https://vitaliy-bli.github.io/botkordon/?utm_source=novaposhta&utm_medium=email&utm_campaign=jul2026,B2B / Partnerships,,,Cross-border parcel drivers
-2,Meest,meest,https://vitaliy-bli.github.io/botkordon/?utm_source=meest&utm_medium=email&utm_campaign=jul2026,Head of Operations,,,New Lviv hub near PL border
+Rank,Company,UTM Source,Outreach Link,Contact Target,Status,Sent Date,Notes
+1,ТАС СГ,tas,https://vitaliy-bli.github.io/botkordon/?utm_source=tas&utm_medium=email&utm_campaign=jul2026,Head of Digital / Head of Product,,,#1 UA non-life insurer 2025. Digital push. Green Card + auto.
+2,УСГ (Українська страхова група),usg,https://vitaliy-bli.github.io/botkordon/?utm_source=usg&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Топ-2 non-life. Auto + Green Card core.
+3,PZU Україна,pzu,https://vitaliy-bli.github.io/botkordon/?utm_source=pzu&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Polish parent — natural PL fit. Digital priorities.
+4,Княжа,kniazha,https://vitaliy-bli.github.io/botkordon/?utm_source=kniazha&utm_medium=email&utm_campaign=jul2026,Head of Product,,,VIG group. Auto insurance strong.
+5,Перша,persha,https://vitaliy-bli.github.io/botkordon/?utm_source=persha&utm_medium=email&utm_campaign=jul2026,CDO,,,Top-5. Retail focus.
+6,ВУСО,vuso,https://vitaliy-bli.github.io/botkordon/?utm_source=vuso&utm_medium=email&utm_campaign=jul2026,Head of Marketing,,,Retail insurance. Marketing budget.
+7,ІНГО Україна,ingo,https://vitaliy-bli.github.io/botkordon/?utm_source=ingo&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Big brand. Active auto insurance.
+8,Гардіан,gardian,https://vitaliy-bli.github.io/botkordon/?utm_source=gardian&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Top-10 non-life.
+9,Оранта,oranta,https://vitaliy-bli.github.io/botkordon/?utm_source=oranta&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Історичний бренд. Auto insurance.
+10,ARX,arx,https://vitaliy-bli.github.io/botkordon/?utm_source=arx&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Ex-AXA. Digital insurance leader.
+11,УНІКА,unika,https://vitaliy-bli.github.io/botkordon/?utm_source=unika&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Strong Green Card + travel medical.
+12,Універсальна,universalna,https://vitaliy-bli.github.io/botkordon/?utm_source=universalna&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Digital-forward.
+13,Arsenal Insurance,arsenal,https://vitaliy-bli.github.io/botkordon/?utm_source=arsenal&utm_medium=email&utm_campaign=jul2026,CDO / Head of Innovation,,,Fintech partnerships history.
+14,Провідна,providna,https://vitaliy-bli.github.io/botkordon/?utm_source=providna&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Vienna Insurance Group. Green Card актив.
+15,Кредо,credo,https://vitaliy-bli.github.io/botkordon/?utm_source=credo&utm_medium=email&utm_campaign=jul2026,Head of Marketing,,,Регіональна сила. Auto+MTPL.
+16,АСКО,asko,https://vitaliy-bli.github.io/botkordon/?utm_source=asko&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Auto insurance specialist.
+17,ЕТАЛОН,etalon,https://vitaliy-bli.github.io/botkordon/?utm_source=etalon&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Non-life mid-tier.
+18,Мотор-Гарант,motor_garant,https://vitaliy-bli.github.io/botkordon/?utm_source=motor_garant&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Motor insurance спеціалізація — прямий фіт.
+19,Альфа Страхування,alfa,https://vitaliy-bli.github.io/botkordon/?utm_source=alfa&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Digital+retail active.
+20,Просто (Prosto),prosto,https://vitaliy-bli.github.io/botkordon/?utm_source=prosto&utm_medium=email&utm_campaign=jul2026,Founder / CPO,,,Цифрова страхова. Швидка інтеграція.
