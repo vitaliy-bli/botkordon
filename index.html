@@ -1,20 +1,531 @@
 <!doctype html>
 <html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0A0B0F" />
-    <meta name="description" content="Kordon Bot — готовий канал дистрибуції страхових продуктів. 1.9k+ активних водіїв, high-intent аудиторія перед перетином кордону UA-EU." />
-    <meta property="og:title" content="Kordon Bot — новий канал дистрибуції страхового портфелю" />
-    <meta property="og:description" content="Готовий Telegram-бот з активною аудиторією 1.9k водіїв. High-intent таргетинг Green Card та travel insurance." />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>Kordon Bot · Distribution channel for insurance carriers</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A0B0F" />
+  <meta name="description" content="Kordon Bot — готовий канал дистрибуції страхових продуктів. 1.9k+ активних водіїв, high-intent аудиторія перед перетином кордону UA-EU." />
+  <meta property="og:title" content="Kordon Bot — новий канал дистрибуції страхового портфелю" />
+  <meta property="og:description" content="Готовий Telegram-бот з активною аудиторією 1.9k водіїв. High-intent таргетинг Green Card та travel insurance." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Kordon Bot · Distribution channel for insurance carriers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: { DEFAULT: "#0A0B0F", soft: "#0F1117", card: "#141821" },
+            line: "#1F2430",
+            text: { DEFAULT: "#E7EAF0", muted: "#8A93A6", dim: "#5A6478" },
+            accent: { DEFAULT: "#7DFFB0", strong: "#4CE38E" },
+            warn: "#FFB84D",
+            danger: "#FF5C6B",
+          },
+          fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"] },
+          letterSpacing: { tightest: "-0.04em" },
+          maxWidth: { content: "1180px" },
+          boxShadow: {
+            glow: "0 0 80px -20px rgba(125,255,176,0.35)",
+            card: "0 1px 0 rgba(255,255,255,0.04) inset, 0 20px 40px -20px rgba(0,0,0,0.6)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      margin: 0;
+      color: #E7EAF0;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 50% -200px, rgba(125,255,176,0.06), transparent 60%),
+        radial-gradient(800px 400px at 100% 20%, rgba(76,227,142,0.04), transparent 60%),
+        #0A0B0F;
+    }
+    ::selection { background: rgba(125,255,176,0.3); color: #fff; }
+
+    .container-x { max-width: 1180px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; }
+    @media (min-width: 768px) { .container-x { padding-left: 2.5rem; padding-right: 2.5rem; } }
+
+    .h-eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em; color: #5A6478; }
+    .h-display { font-weight: 600; letter-spacing: -0.04em; color: #E7EAF0; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border-radius: 9999px; background: #7DFFB0; color: #0A0B0F;
+      padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: #4CE38E; box-shadow: 0 0 80px -20px rgba(125,255,176,0.35); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border-radius: 9999px; border: 1px solid #1F2430; color: #E7EAF0;
+      padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 500;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: #8A93A6; color: #fff; }
+
+    .card {
+      border-radius: 1rem; border: 1px solid #1F2430; background: #141821;
+      padding: 1.5rem;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 20px 40px -20px rgba(0,0,0,0.6);
+    }
+
+    .divider { height: 1px; width: 100%; background: linear-gradient(90deg, transparent, #1F2430, transparent); }
+
+    .stat-num { font-size: 2.25rem; font-weight: 600; letter-spacing: -0.04em; color: #E7EAF0; }
+    @media (min-width: 768px) { .stat-num { font-size: 3rem; } }
+
+    .link-underline { text-decoration: underline; text-decoration-color: #1F2430; text-underline-offset: 4px; }
+    .link-underline:hover { text-decoration-color: #8A93A6; }
+
+    /* iPhone mockup */
+    .phone {
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 9 / 19.5;
+      border-radius: 44px;
+      padding: 10px;
+      background: linear-gradient(180deg, #1a1d26 0%, #0e1015 100%);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 30px 60px -20px rgba(0,0,0,0.8),
+        0 0 60px -20px rgba(125,255,176,0.15);
+    }
+    .phone::before {
+      content: ""; position: absolute; top: 18px; left: 50%;
+      transform: translateX(-50%);
+      width: 90px; height: 24px; background: #000; border-radius: 999px; z-index: 2;
+    }
+    .phone__screen {
+      position: relative; width: 100%; height: 100%;
+      border-radius: 36px; overflow: hidden; background: #000;
+    }
+    .phone__screen img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .phone--sm { max-width: 220px; }
+
+    /* animate pulse */
+    @keyframes pulse-soft { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .pulse-dot { animation: pulse-soft 2s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-bg text-text font-sans">
+
+<!-- NAV -->
+<header class="sticky top-0 z-40 border-b border-line/60 bg-bg/70 backdrop-blur">
+  <div class="container-x flex h-16 items-center justify-between">
+    <a href="#top" class="flex items-center gap-2 text-sm font-semibold tracking-tight text-white">
+      <span class="grid h-7 w-7 place-items-center rounded-lg bg-accent text-bg font-bold">K</span>
+      <span>Kordon Bot</span>
+      <span class="ml-2 hidden text-text-dim md:inline">· distribution channel</span>
+    </a>
+    <nav class="hidden items-center gap-8 text-sm text-text-muted md:flex">
+      <a href="#problem" class="hover:text-white">Problem</a>
+      <a href="#showcase" class="hover:text-white">Product</a>
+      <a href="#market" class="hover:text-white">Market</a>
+      <a href="#dealpack" class="hover:text-white">Deal</a>
+    </nav>
+    <a href="#nda" class="btn-primary" style="padding:0.5rem 1rem; font-size:0.75rem">Request NDA</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-36">
+  <div class="container-x grid items-center gap-16 md:grid-cols-[1.15fr_1fr]">
+    <div>
+      <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-bg-card px-3 py-1.5 text-xs text-text-muted">
+        <span class="h-1.5 w-1.5 rounded-full bg-accent pulse-dot"></span>
+        Live · 1&nbsp;792 monthly users · 26 border crossings
+      </div>
+      <h1 class="h-display text-4xl leading-[1.05] md:text-6xl md:leading-[1.02]">
+        Ваш новий канал<br/>дистрибуції<br/>
+        <span class="text-accent">страхового портфелю.</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-text-muted">
+        Готовий канал продажу «Зеленої карти» та travel insurance. Найточніший таргетинг:
+        <span class="text-white">1.9k активних водіїв</span>, які <span class="text-white">вже сьогодні</span>
+        планують перетин кордону, +<span class="text-white">20–30 нових юзерів щодня</span> — з
+        <span class="text-white">нульовими витратами на маркетинг</span>.
+      </p>
+      <div class="mt-9 flex flex-wrap items-center gap-3">
+        <a href="#nda" class="btn-primary">Отримати Pitch Deck &amp; NDA <span aria-hidden>→</span></a>
+        <a href="#showcase" class="btn-ghost">Подивитись продукт</a>
+      </div>
+
+      <div class="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-line pt-8">
+        <div>
+          <div class="stat-num">1.9k</div>
+          <div class="mt-1 text-xs uppercase tracking-wider text-text-dim">active users</div>
+        </div>
+        <div>
+          <div class="stat-num">26</div>
+          <div class="mt-1 text-xs uppercase tracking-wider text-text-dim">border points · 5 countries</div>
+        </div>
+        <div>
+          <div class="stat-num">30<span class="text-text-dim text-2xl">/day</span></div>
+          <div class="mt-1 text-xs uppercase tracking-wider text-text-dim">organic growth</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative flex justify-center md:justify-end">
+      <div class="absolute -inset-16 -z-10 bg-[radial-gradient(circle_at_center,rgba(125,255,176,0.18),transparent_60%)] blur-2xl"></div>
+      <div class="phone">
+        <div class="phone__screen">
+          <img src="screens/screen-2-menu.jpg" alt="Kordon Bot — live queues in Telegram" loading="eager"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" class="border-t border-line/60 py-24 md:py-32">
+  <div class="container-x">
+    <div class="mb-14 max-w-3xl">
+      <div class="h-eyebrow mb-4">The shift</div>
+      <h2 class="h-display text-3xl md:text-5xl">
+        Перестаньте конкурувати за увагу.<br/>
+        <span class="text-text-muted">Ловіть момент потреби.</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="card">
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-danger/30 bg-danger/10 px-3 py-1 text-xs text-danger">
+          <span class="h-2 w-2 rounded-full bg-danger"></span>
+          Традиційна performance-реклама
+        </div>
+        <ul class="space-y-4 text-text-muted">
+          <li class="flex gap-3"><span class="mt-1 text-danger">◇</span><span><span class="text-white">Abstract interest.</span> Юзер не знає, що йому це потрібно зараз.</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-danger">◇</span><span><span class="text-white">Cold traffic + broad targeting.</span> «Люди 25–45, які подорожують.»</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-danger">◇</span><span><span class="text-white">High CAC.</span> Ви платите за клік, не за намір.</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-danger">◇</span><span><span class="text-white">Разовий контакт.</span> Купив — забув про вас до наступного року.</span></li>
+        </ul>
+      </div>
+
+      <div class="card relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/10 blur-3xl"></div>
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-accent">
+          <span class="h-2 w-2 rounded-full bg-accent"></span>
+          Kordon Bot
+        </div>
+        <ul class="space-y-4 text-text-muted">
+          <li class="flex gap-3"><span class="mt-1 text-accent">✦</span><span><span class="text-white">Actual need.</span> Юзер сам відкриває бот — «мені треба на кордон».</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-accent">✦</span><span><span class="text-white">Organic high-intent traffic.</span> Пошуковий / word-of-mouth. Zero paid.</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-accent">✦</span><span><span class="text-white">Targeting «тут і зараз».</span> Купує страховку тому, що завтра їде.</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-accent">✦</span><span><span class="text-white">Recurring engagement.</span> Повертається перед кожною поїздкою.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="mx-auto mt-12 max-w-3xl text-center text-lg leading-relaxed text-text-muted">
+      Kordon Bot — це не інформація. Це <span class="text-white">момент, коли водій знає, що поїде</span>,
+      і готовий купити страховку. Ви продаєте рішення, коли клієнт максимально сприйнятливий.
+    </p>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section id="showcase" class="border-t border-line/60 py-24 md:py-32">
+  <div class="container-x">
+    <div class="mb-16 max-w-3xl">
+      <div class="h-eyebrow mb-4">Product</div>
+      <h2 class="h-display text-3xl md:text-5xl">Готовий, інтуїтивний<br/>інтерфейс.</h2>
+      <p class="mt-5 text-lg text-text-muted">Чотири екрани, які закривають 95% сценаріїв користувача перед поїздкою.</p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div class="card flex flex-col items-center text-center transition hover:border-text-dim">
+        <div class="phone phone--sm mb-6">
+          <div class="phone__screen"><img src="screens/screen-1-intro.jpg" alt="Onboarding" loading="lazy"/></div>
+        </div>
+        <div class="h-eyebrow mb-2">01 · Onboarding</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Простий старт</h3>
+        <p class="text-sm text-text-muted">Вибір напрямку, чітке пояснення цінності. Юзер розуміє продукт за 5 секунд.</p>
+      </div>
+
+      <div class="card flex flex-col items-center text-center transition hover:border-text-dim">
+        <div class="phone phone--sm mb-6">
+          <div class="phone__screen"><img src="screens/screen-2-menu.jpg" alt="Live overview" loading="lazy"/></div>
+        </div>
+        <div class="h-eyebrow mb-2">02 · Live overview</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">26 КПП, 5 країн</h3>
+        <p class="text-sm text-text-muted">Стан черг на всіх активних КПП з Польщею, Румунією, Угорщиною, Словаччиною та Молдовою.</p>
+      </div>
+
+      <div class="card flex flex-col items-center text-center transition hover:border-text-dim">
+        <div class="phone phone--sm mb-6">
+          <div class="phone__screen"><img src="screens/screen-3-queues.jpg" alt="Queues list" loading="lazy"/></div>
+        </div>
+        <div class="h-eyebrow mb-2">03 · Recommendation</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Який КПП обрати?</h3>
+        <p class="text-sm text-text-muted">AI рекомендує найменш завантажений пункт. Статистика по авто / автобусам, оновлення кожні 30 хв.</p>
+      </div>
+
+      <div class="card flex flex-col items-center text-center transition hover:border-text-dim">
+        <div class="phone phone--sm mb-6">
+          <div class="phone__screen"><img src="screens/screen-4-info.jpg" alt="Checkpoint info" loading="lazy"/></div>
+        </div>
+        <div class="h-eyebrow mb-2">04 · Details</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Інфо про КПП</h3>
+        <p class="text-sm text-text-muted">Час роботи, типи ТЗ, доступні послуги: кафе, паливо, туалети, duty-free, обмін.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section id="market" class="border-t border-line/60 py-24 md:py-32">
+  <div class="container-x">
+    <div class="mb-16 max-w-3xl">
+      <div class="h-eyebrow mb-4">Market · UA ↔ EU</div>
+      <h2 class="h-display text-3xl md:text-5xl">
+        37M+ перетинів<br/>
+        <span class="text-text-muted">на рік.</span>
+      </h2>
+      <p class="mt-5 text-lg text-text-muted">
+        8.2 млн транспортних засобів на рік — це 8.2 млн обов'язкових «Зелених карт».
+        Держприкордонслужба, 2025. Ринок росте +5–7% YoY.
+      </p>
+    </div>
+
+    <div class="mb-14 grid gap-4 md:grid-cols-4">
+      <div class="card"><div class="stat-num text-accent">37M+</div><div class="mt-2 text-sm text-text-muted">перетинів UA-EU / рік</div></div>
+      <div class="card"><div class="stat-num text-accent">8.2M</div><div class="mt-2 text-sm text-text-muted">ТЗ на рік</div></div>
+      <div class="card"><div class="stat-num text-accent">5-7%</div><div class="mt-2 text-sm text-text-muted">YoY зростання</div></div>
+      <div class="card"><div class="stat-num text-accent">26</div><div class="mt-2 text-sm text-text-muted">активних КПП</div></div>
+    </div>
+
+    <div class="card overflow-hidden" style="padding:0">
+      <div class="grid gap-0 md:grid-cols-[1fr_1.2fr]">
+        <div class="border-b border-line p-8 md:border-b-0 md:border-r">
+          <div class="h-eyebrow mb-3">Unit economics · illustrative</div>
+          <h3 class="text-xl font-semibold text-white">Математика окупності</h3>
+          <p class="mt-3 text-sm text-text-muted">
+            Проекція на активну базу після CAC-кампанії. Green Card як anchor-продукт,
+            travel insurance / ассистанс — крос-сел на recurring engagement.
+          </p>
+        </div>
+
+        <div class="p-8">
+          <table class="w-full text-sm">
+            <tbody class="divide-y divide-line">
+              <tr>
+                <td class="py-3 text-text-muted">Активна база (після CAC-кампанії)</td>
+                <td class="py-3 text-right font-semibold text-white">50&nbsp;000 users</td>
+              </tr>
+              <tr>
+                <td class="py-3 text-text-muted">Конверсія у Green Card</td>
+                <td class="py-3 text-right font-semibold text-white">3%</td>
+              </tr>
+              <tr>
+                <td class="py-3 text-text-muted">Середня вартість Green Card</td>
+                <td class="py-3 text-right font-semibold text-white">$25</td>
+              </tr>
+              <tr>
+                <td class="py-3 text-text-muted">Маржа страховика</td>
+                <td class="py-3 text-right font-semibold text-white">30%</td>
+              </tr>
+              <tr class="border-t-2 border-accent/40">
+                <td class="pt-4 text-white">Маржа з бази щомісяця</td>
+                <td class="pt-4 text-right text-2xl font-semibold text-accent">$11&nbsp;250</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="mt-4 text-xs text-text-dim">
+            + крос-сел travel insurance та ассистанс на recurring engagement. Юзери повертаються перед кожною поїздкою.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits" class="border-t border-line/60 py-24 md:py-32">
+  <div class="container-x">
+    <div class="mb-16 max-w-3xl">
+      <div class="h-eyebrow mb-4">Why now</div>
+      <h2 class="h-display text-3xl md:text-5xl">Чому це має бути<br/>ваша страхова.</h2>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="card transition hover:border-text-dim">
+        <div class="mb-5 grid h-10 w-10 place-items-center rounded-xl border border-line bg-bg text-lg text-accent">◎</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Готовий канал дистрибуції</h3>
+        <p class="text-sm text-text-muted">Активний трафік вже є та стабільно зростає. Не будуйте з нуля — купіть готовий актив і почніть монетизувати з першого дня.</p>
+      </div>
+      <div class="card transition hover:border-text-dim">
+        <div class="mb-5 grid h-10 w-10 place-items-center rounded-xl border border-line bg-bg text-lg text-accent">⌖</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Найточніший таргетинг у ринку</h3>
+        <p class="text-sm text-text-muted">Юзер сам приходить дізнатись про черги. Це людина, яка вже готується до поїздки. Intent на рівні пошуку.</p>
+      </div>
+      <div class="card transition hover:border-text-dim">
+        <div class="mb-5 grid h-10 w-10 place-items-center rounded-xl border border-line bg-bg text-lg text-accent">↺</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Recurring engagement</h3>
+        <p class="text-sm text-text-muted">Постійні повернення користувачів перед кожною поїздкою. Cross-sell медичного страхування, ассистансу, продовжень Green Card.</p>
+      </div>
+      <div class="card transition hover:border-text-dim">
+        <div class="mb-5 grid h-10 w-10 place-items-center rounded-xl border border-line bg-bg text-lg text-accent">◆</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Brand touchpoint</h3>
+        <p class="text-sm text-text-muted">Ваша страхова — перше, що бачить водій, коли думає про перетин кордону. Top-of-mind у категорії з високою частотою покупки.</p>
+      </div>
+      <div class="card transition hover:border-text-dim">
+        <div class="mb-5 grid h-10 w-10 place-items-center rounded-xl border border-line bg-bg text-lg text-accent">▤</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Data &amp; insights</h3>
+        <p class="text-sm text-text-muted">Аналітика по маршрутах, частоті поїздок, географії. Сировина для продуктових рішень та ретеншен-кампаній.</p>
+      </div>
+      <div class="card transition hover:border-text-dim">
+        <div class="mb-5 grid h-10 w-10 place-items-center rounded-xl border border-line bg-bg text-lg text-accent">◈</div>
+        <h3 class="mb-2 text-lg font-semibold text-white">Zero CAC baseline</h3>
+        <p class="text-sm text-text-muted">1.9k база побудована з нуля без маркетингового бюджету. Ви успадковуєте organic growth engine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEAL PACK -->
+<section id="dealpack" class="border-t border-line/60 py-24 md:py-32">
+  <div class="container-x">
+    <div class="mb-16 max-w-3xl">
+      <div class="h-eyebrow mb-4">Asset transfer</div>
+      <h2 class="h-display text-3xl md:text-5xl">
+        Повний, готовий<br/>до передачі asset.
+      </h2>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
+      <div class="card">
+        <div class="h-eyebrow mb-6">Що ви отримуєте</div>
+        <ul class="divide-y divide-line">
+          <li class="flex gap-4 py-4 first:pt-0">
+            <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+            <div><div class="font-medium text-white">Повний код</div><div class="mt-1 text-sm text-text-muted">Node.js + Python + AI-парсер чатів. Git-репозиторій з історією.</div></div>
+          </li>
+          <li class="flex gap-4 py-4">
+            <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+            <div><div class="font-medium text-white">Активна Telegram-аудиторія</div><div class="mt-1 text-sm text-text-muted">1.9k+ юзерів, +20–30/день органічно. Trust базовий.</div></div>
+          </li>
+          <li class="flex gap-4 py-4">
+            <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+            <div><div class="font-medium text-white">Інфраструктура</div><div class="mt-1 text-sm text-text-muted">Railway (сервіси), GCP (Telegram listener), Supabase (data). Готова до передачі.</div></div>
+          </li>
+          <li class="flex gap-4 py-4">
+            <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+            <div><div class="font-medium text-white">30-денна advisory-підтримка</div><div class="mt-1 text-sm text-text-muted">Пряма допомога під час трансферу. Q&amp;A з інженерами.</div></div>
+          </li>
+          <li class="flex gap-4 py-4">
+            <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+            <div><div class="font-medium text-white">60-денна warranty на стабільність</div><div class="mt-1 text-sm text-text-muted">Ми покриваємо critical bugs у перші 2 місяці.</div></div>
+          </li>
+          <li class="flex gap-4 py-4 last:pb-0">
+            <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+            <div><div class="font-medium text-white">RUNBOOK з операційними процедурами</div><div class="mt-1 text-sm text-text-muted">Deploy, monitoring, incident response — все документовано.</div></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="h-eyebrow mb-6">Під капотом</div>
+        <div class="mb-6 grid grid-cols-3 gap-3">
+          <div class="rounded-xl border border-line bg-bg px-3 py-4 text-center text-sm text-white">Node.js</div>
+          <div class="rounded-xl border border-line bg-bg px-3 py-4 text-center text-sm text-white">Python</div>
+          <div class="rounded-xl border border-line bg-bg px-3 py-4 text-center text-sm text-white">Railway</div>
+          <div class="rounded-xl border border-line bg-bg px-3 py-4 text-center text-sm text-white">GCP</div>
+          <div class="rounded-xl border border-line bg-bg px-3 py-4 text-center text-sm text-white">Supabase</div>
+          <div class="rounded-xl border border-line bg-bg px-3 py-4 text-center text-sm text-white">AI-парсер</div>
+        </div>
+        <div class="divider mb-6"></div>
+        <ul class="space-y-4 text-sm text-text-muted">
+          <li class="flex gap-3"><span class="mt-1 text-accent">▹</span><span>Оновлення даних <span class="text-white">кожні 30 хвилин</span> з 3 офіційних джерел.</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-accent">▹</span><span>AI-аналіз повідомлень з водійських Telegram-чатів (real-time).</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-accent">▹</span><span>Алгоритм рекомендації найменш завантаженого КПП.</span></li>
+          <li class="flex gap-3"><span class="mt-1 text-accent">▹</span><span>NDA + data room · code walkthrough · live-demo включені.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS + CTA -->
+<section id="nda" class="border-t border-line/60 py-24 md:py-32">
+  <div class="container-x">
+    <div class="grid gap-16 lg:grid-cols-[1fr_1.1fr]">
+      <div>
+        <div class="h-eyebrow mb-4">Next steps</div>
+        <h2 class="h-display text-3xl md:text-5xl">
+          Прозорий процес.<br/>
+          <span class="text-text-muted">Чіткі кроки.</span>
+        </h2>
+        <p class="mt-6 max-w-md text-lg text-text-muted">
+          Від NDA до трансферу — 3–6 тижнів. Ми готові стартувати цього тижня.
+        </p>
+
+        <div class="mt-10 card">
+          <div class="mb-4 text-sm text-text-muted">Пишіть напряму:</div>
+          <a href="mailto:botkordon@gmail.com?subject=Kordon%20Bot%20%E2%80%94%20NDA%20%26%20Data%20Room%20request&body=Company%3A%0AName%3A%0ARole%3A%0APreferred%20call%20time%3A%0A%0AInterested%20in%20Kordon%20Bot%20acquisition.%20Please%20share%20NDA%20and%20schedule%20a%20live%20demo."
+             class="btn-primary w-full justify-center text-base" style="padding:1rem 1.5rem">
+            Отримати Pitch Deck &amp; NDA <span aria-hidden>→</span>
+          </a>
+          <div class="mt-4 text-center text-sm text-text-dim">
+            або email: <a class="link-underline text-text" href="mailto:botkordon@gmail.com">botkordon@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <ol class="space-y-3">
+        <li class="card flex gap-6" style="padding:1.5rem">
+          <div class="flex-shrink-0 text-2xl font-semibold text-text-dim tabular-nums">01</div>
+          <div><div class="font-semibold text-white">NDA</div><div class="mt-1 text-sm text-text-muted">Підписуємо NDA, відкриваємо доступ до data room.</div></div>
+        </li>
+        <li class="card flex gap-6" style="padding:1.5rem">
+          <div class="flex-shrink-0 text-2xl font-semibold text-text-dim tabular-nums">02</div>
+          <div><div class="font-semibold text-white">Live-демо</div><div class="mt-1 text-sm text-text-muted">30 хвилин screen-share з Q&amp;A. Показуємо метрики, код, інфраструктуру.</div></div>
+        </li>
+        <li class="card flex gap-6" style="padding:1.5rem">
+          <div class="flex-shrink-0 text-2xl font-semibold text-text-dim tabular-nums">03</div>
+          <div><div class="font-semibold text-white">Due diligence</div><div class="mt-1 text-sm text-text-muted">5–10 днів на review. Technical + commercial.</div></div>
+        </li>
+        <li class="card flex gap-6" style="padding:1.5rem">
+          <div class="flex-shrink-0 text-2xl font-semibold text-text-dim tabular-nums">04</div>
+          <div><div class="font-semibold text-white">LOI</div><div class="mt-1 text-sm text-text-muted">Non-binding terms sheet. Фіксуємо ціну та структуру угоди.</div></div>
+        </li>
+        <li class="card flex gap-6" style="padding:1.5rem">
+          <div class="flex-shrink-0 text-2xl font-semibold text-text-dim tabular-nums">05</div>
+          <div><div class="font-semibold text-white">APA + Transfer</div><div class="mt-1 text-sm text-text-muted">Asset Purchase Agreement, передача активу, advisory-період.</div></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-line/60 py-12">
+  <div class="container-x flex flex-col items-start justify-between gap-6 text-sm text-text-muted md:flex-row md:items-center">
+    <div class="flex items-center gap-3">
+      <span class="grid h-7 w-7 place-items-center rounded-lg bg-accent text-bg font-bold">K</span>
+      <span class="text-white">Kordon Bot</span>
+      <span class="text-text-dim">· distribution channel for insurance carriers</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="mailto:botkordon@gmail.com" class="link-underline">botkordon@gmail.com</a>
+      <a href="#top" class="hover:text-white">Top ↑</a>
+    </div>
+  </div>
+  <div class="container-x mt-6 text-xs text-text-dim">
+    © <span id="yr"></span> Kordon Bot. Asset for acquisition. All product screenshots — live app.
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
 </html>
