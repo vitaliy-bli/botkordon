@@ -605,19 +605,46 @@
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 
 <script>
-// Analytics beacon → n8n webhook (fires once per page load, silent fail)
+// Analytics: (1) page_view beacon, (2) dynamic bot URL with ?start=<source>, (3) bot_click beacon
 (function(){
-  try {
-    var p = new URLSearchParams(window.location.search);
-    var url = 'https://n8n.bkw.group/webhook/247e1966-fdc2-46b0-929e-f081ac402c36'
-      + '?utm_source='   + encodeURIComponent(p.get('utm_source')   || 'direct')
-      + '&utm_campaign=' + encodeURIComponent(p.get('utm_campaign') || 'none')
-      + '&utm_medium='   + encodeURIComponent(p.get('utm_medium')   || 'none')
-      + '&referrer='     + encodeURIComponent(document.referrer     || 'direct')
-      + '&screen='       + encodeURIComponent(window.innerWidth + 'x' + window.innerHeight)
-      + '&ts='           + Date.now();
-    fetch(url, { mode: 'no-cors', keepalive: true }).catch(function(){});
-  } catch(e){}
+  var WEBHOOK = 'https://n8n.bkw.group/webhook/247e1966-fdc2-46b0-929e-f081ac402c36';
+  var p = new URLSearchParams(window.location.search);
+  var rawSrc = (p.get('utm_source') || '').replace(/[^a-z0-9_]/gi, '').substring(0, 32);
+  var src = rawSrc || 'direct';
+  var campaign = p.get('utm_campaign') || 'none';
+  var medium   = p.get('utm_medium')   || 'none';
+
+  function beacon(event, extra){
+    try {
+      var u = WEBHOOK
+        + '?event='        + encodeURIComponent(event)
+        + '&utm_source='   + encodeURIComponent(src)
+        + '&utm_campaign=' + encodeURIComponent(campaign)
+        + '&utm_medium='   + encodeURIComponent(medium)
+        + '&referrer='     + encodeURIComponent(document.referrer || 'direct')
+        + '&screen='       + encodeURIComponent(window.innerWidth + 'x' + window.innerHeight)
+        + '&ts='           + Date.now()
+        + (extra || '');
+      fetch(u, { mode: 'no-cors', keepalive: true }).catch(function(){});
+    } catch(e){}
+  }
+
+  // (1) Fire page_view on load
+  beacon('page_view');
+
+  // (2)+(3) Enhance bot links: append ?start=<source> and fire bot_click beacon on click
+  var links = document.querySelectorAll('a[href*="t.me/NaKordon_bot"]');
+  for (var i = 0; i < links.length; i++) {
+    var a = links[i];
+    if (rawSrc) {
+      try {
+        var url = new URL(a.href);
+        url.searchParams.set('start', rawSrc);
+        a.href = url.toString();
+      } catch(e){}
+    }
+    a.addEventListener('click', function(){ beacon('bot_click'); });
+  }
 })();
 </script>
 </body>
