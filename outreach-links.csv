@@ -1,21 +1,21 @@
-Rank,Company,UTM Source,Outreach Link,Contact Target,Status,Sent Date,Notes
-1,ТАС СГ,tas,https://vitaliy-bli.github.io/botkordon/?utm_source=tas&utm_medium=email&utm_campaign=jul2026,Head of Digital / Head of Product,,,#1 UA non-life insurer 2025. Digital push. Green Card + auto.
-2,УСГ (Українська страхова група),usg,https://vitaliy-bli.github.io/botkordon/?utm_source=usg&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Топ-2 non-life. Auto + Green Card core.
-3,PZU Україна,pzu,https://vitaliy-bli.github.io/botkordon/?utm_source=pzu&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Polish parent — natural PL fit. Digital priorities.
-4,Княжа,kniazha,https://vitaliy-bli.github.io/botkordon/?utm_source=kniazha&utm_medium=email&utm_campaign=jul2026,Head of Product,,,VIG group. Auto insurance strong.
-5,Перша,persha,https://vitaliy-bli.github.io/botkordon/?utm_source=persha&utm_medium=email&utm_campaign=jul2026,CDO,,,Top-5. Retail focus.
-6,ВУСО,vuso,https://vitaliy-bli.github.io/botkordon/?utm_source=vuso&utm_medium=email&utm_campaign=jul2026,Head of Marketing,,,Retail insurance. Marketing budget.
-7,ІНГО Україна,ingo,https://vitaliy-bli.github.io/botkordon/?utm_source=ingo&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Big brand. Active auto insurance.
-8,Гардіан,gardian,https://vitaliy-bli.github.io/botkordon/?utm_source=gardian&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Top-10 non-life.
-9,Оранта,oranta,https://vitaliy-bli.github.io/botkordon/?utm_source=oranta&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Історичний бренд. Auto insurance.
-10,ARX,arx,https://vitaliy-bli.github.io/botkordon/?utm_source=arx&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Ex-AXA. Digital insurance leader.
-11,УНІКА,unika,https://vitaliy-bli.github.io/botkordon/?utm_source=unika&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Strong Green Card + travel medical.
-12,Універсальна,universalna,https://vitaliy-bli.github.io/botkordon/?utm_source=universalna&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Digital-forward.
-13,Arsenal Insurance,arsenal,https://vitaliy-bli.github.io/botkordon/?utm_source=arsenal&utm_medium=email&utm_campaign=jul2026,CDO / Head of Innovation,,,Fintech partnerships history.
-14,Провідна,providna,https://vitaliy-bli.github.io/botkordon/?utm_source=providna&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Vienna Insurance Group. Green Card актив.
-15,Кредо,credo,https://vitaliy-bli.github.io/botkordon/?utm_source=credo&utm_medium=email&utm_campaign=jul2026,Head of Marketing,,,Регіональна сила. Auto+MTPL.
-16,АСКО,asko,https://vitaliy-bli.github.io/botkordon/?utm_source=asko&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Auto insurance specialist.
-17,ЕТАЛОН,etalon,https://vitaliy-bli.github.io/botkordon/?utm_source=etalon&utm_medium=email&utm_campaign=jul2026,Head of Retail,,,Non-life mid-tier.
-18,Мотор-Гарант,motor_garant,https://vitaliy-bli.github.io/botkordon/?utm_source=motor_garant&utm_medium=email&utm_campaign=jul2026,Head of Product,,,Motor insurance спеціалізація — прямий фіт.
-19,Альфа Страхування,alfa,https://vitaliy-bli.github.io/botkordon/?utm_source=alfa&utm_medium=email&utm_campaign=jul2026,Head of Digital,,,Digital+retail active.
-20,Просто (Prosto),prosto,https://vitaliy-bli.github.io/botkordon/?utm_source=prosto&utm_medium=email&utm_campaign=jul2026,Founder / CPO,,,Цифрова страхова. Швидка інтеграція.
+Rank,Company,UTM Source,Outreach Link,Website,Contact Name,Role,LinkedIn,Corporate Email,General Email,Phone,Status,Sent Date,Notes
+1,ТАС СГ,tas,https://vitaliy-bli.github.io/botkordon/?utm_source=tas&utm_medium=email&utm_campaign=jul2026,https://sgtas.ua/,не знайдено,Chairman of the Board,,,office@sgtas.ua,+380800503773 / 0800505150,ACTIVE,,#1 UA non-life 2025. Digital push.
+2,УСГ (Українська страхова група),usg,https://vitaliy-bli.github.io/botkordon/?utm_source=usg&utm_medium=email&utm_campaign=jul2026,https://www.usg.ua/,не знайдено,CEO,,,info@usg.ua,0800500300,ACTIVE,,Топ-2 non-life. Auto + Green Card core.
+3,PZU Україна,pzu,https://vitaliy-bli.github.io/botkordon/?utm_source=pzu&utm_medium=email&utm_campaign=jul2026,https://pzu.com.ua,не знайдено,CEO,,,office@pzu.com.ua,+380442386238,ACTIVE,,Polish parent — natural PL fit.
+4,Княжа,kniazha,https://vitaliy-bli.github.io/botkordon/?utm_source=kniazha&utm_medium=email&utm_campaign=jul2026,https://kniazha.ua/,не знайдено,Chairman of the Board,,,reception@kniazha.ua,+380800501486 / 0442077272,ACTIVE,,VIG group. Auto insurance strong.
+5,Перша,persha,https://vitaliy-bli.github.io/botkordon/?utm_source=persha&utm_medium=email&utm_campaign=jul2026,https://persha.ua/,не знайдено,CEO,,,office@persha.ua,0800301001 / +380442903995,ACTIVE,,Top-5. Retail focus.
+6,ВУСО,vuso,https://vitaliy-bli.github.io/botkordon/?utm_source=vuso&utm_medium=email&utm_campaign=jul2026,https://vuso.ua/,Андрій Артюхов,Chairman of the Management Board,,a.artyukhov@vuso.ua (guess),client-support@vuso.ua,0800503773,ACTIVE,,Retail. Marketing budget.
+7,ІНГО Україна,ingo,https://vitaliy-bli.github.io/botkordon/?utm_source=ingo&utm_medium=email&utm_campaign=jul2026,https://itg.ua/,Андрій Семченко,Director / Chairman of the Board,,a.semchenko@itg.ua (guess),info@itg.ua,0800215553,ACTIVE,,Big brand. Auto insurance.
+8,Гардіан,gardian,https://vitaliy-bli.github.io/botkordon/?utm_source=gardian&utm_medium=email&utm_campaign=jul2026,https://grdn.com.ua/,не знайдено,CEO,,,office@grdn.com.ua,0800503114,ACTIVE,,Top-10 non-life.
+9,Оранта,oranta,https://vitaliy-bli.github.io/botkordon/?utm_source=oranta&utm_medium=email&utm_campaign=jul2026,https://oranta.ua/,Jacek Meizner,Chairman of the Board / CEO,,j.meizner@oranta.ua (guess),oranta@oranta.ua,+380671707337,ACTIVE,,Історичний бренд. Auto.
+10,ARX,arx,https://vitaliy-bli.github.io/botkordon/?utm_source=arx&utm_medium=email&utm_campaign=jul2026,https://arx.com.ua/,Andrey Peretyazhko,CEO,https://linkedin.com/in/andrey-peretyazhko-212ba937,a.peretyazhko@arx.com.ua (guess),info@arx.com.ua,+380442222225,HOT LEAD,,LinkedIn підтверджено. Топ-пріоритет.
+11,UNIQA Україна,uniqa,https://vitaliy-bli.github.io/botkordon/?utm_source=uniqa&utm_medium=email&utm_campaign=jul2026,https://uniqa.ua/,Olena Uljee,CEO,https://linkedin.com/in/elena-uljee-15bab512,o.uljee@uniqa.ua (guess),info@uniqa.ua,0800500010,HOT LEAD,,LinkedIn підтверджено. Green Card + travel core.
+12,Універсальна,universalna,https://vitaliy-bli.github.io/botkordon/?utm_source=universalna&utm_medium=email&utm_campaign=jul2026,https://universalna.com/,не знайдено,CEO,,,office@universalna.com,0800500381,ACTIVE,,Digital-forward.
+13,Arsenal Insurance,arsenal,https://vitaliy-bli.github.io/botkordon/?utm_source=arsenal&utm_medium=email&utm_campaign=jul2026,https://arsenal-ic.ua/,не знайдено,CEO,https://linkedin.com/company/arsenal-ic,,office@arsenal-ic.ua,+380445026737 / 0800604453,ACTIVE,,Fintech partnerships.
+14,ЕТАЛОН,etalon,https://vitaliy-bli.github.io/botkordon/?utm_source=etalon&utm_medium=email&utm_campaign=jul2026,https://www.etalon.ua/,Олег Кравченко,Director,,o.kravchenko@etalon.ua (guess),info@etalon.ua,0800305800 / +380443920316,ACTIVE,,Mid-tier non-life.
+15,Просто (Prosto),prosto,https://vitaliy-bli.github.io/botkordon/?utm_source=prosto&utm_medium=email&utm_campaign=jul2026,https://prosto.ua/,не знайдено,CEO,,,office@pro100.ua,+380442062885 / +380442386818,ACTIVE (verify),,Цифрова страхова. Перевірити активність.
+16,Провідна,providna,—,https://providna.ua/,—,—,,,info@providna.com.ua,+380444921818,INACTIVE,,Ліцензія анульована НБУ 23.03.2023. Не контактувати.
+17,Кредо,credo,—,https://skcredo.com.ua/,—,—,,,credo@credo.zp.ua,0800500301,INACTIVE,,Тимчасова адміністрація НБУ з 17.07.2025.
+18,АСКО ДС,asko,—,https://askods.com/,Людмила Шопулько,Head of the Board,,,office@askods.com,+380504501560,LIMITED,,Обмежений функціонал (Донецька обл.).
+19,Мотор-Гарант,motor_garant,—,https://motor-garant.com.ua/,—,—,,,info@motor-garant.com.ua,—,INACTIVE,,Ліквідована 29.12.2023.
+20,Альфа Страхування,alfa,—,https://alfaic.ua/,—,—,,,call@alfaic.ua,—,INACTIVE,,Ліцензія анульована НБУ 15.12.2023.
